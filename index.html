@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment Deadline Tracker</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div id="app">
+        <aside class="sidebar">
+            <div class="logo">
+                <span class="logo-icon">⏳</span>
+                HReazec <!-- Mocking the text from image or simply "Tracker" -->
+            </div>
+            <div class="menu-label">Main Menu</div>
+            <nav class="nav-links">
+                <button onclick="switchView('student')" class="nav-btn active">
+                    <span class="icon">📊</span> Dashboard
+                </button>
+                <button onclick="switchView('teacher')" class="nav-btn">
+                    <span class="icon">👩‍🏫</span> Teacher
+                </button>
+            </nav>
+        </aside>
+
+        <section class="main-content">
+            <!-- Student View -->
+            <main id="student-view" class="view-section active">
+                <header class="top-bar">
+                    <h1 class="page-title">Dashboard</h1>
+                    <div class="user-profile">
+                        <img src="https://ui-avatars.com/api/?name=Carla+Sanford&background=random" alt="User"
+                            class="avatar">
+                        <span>Carla Sanford</span>
+                    </div>
+                </header>
+
+                <div class="dashboard-grid" id="assignment-list">
+                    <!-- Assignment Cards will be injected here -->
+                </div>
+            </main>
+
+            <!-- Teacher View -->
+            <main id="teacher-view" class="view-section hidden">
+                <header class="top-bar">
+                    <h1 class="page-title">Teacher Area</h1>
+                    <div class="actions">
+                        <button class="primary-btn" onclick="openModal('add-assignment-modal')">+ New
+                            Assignment</button>
+                    </div>
+                </header>
+
+                <div class="analytics-panel">
+                    <!-- Analytics charts/stats -->
+                </div>
+
+                <div class="recent-activity">
+                    <h2>Submission Log</h2>
+                    <div id="submission-list">
+                        <!-- Submissions list -->
+                    </div>
+                </div>
+            </main>
+        </section>
+
+        <!-- Modals -->
+        <div id="add-assignment-modal" class="modal hidden">
+            <div class="modal-content">
+                <span class="close-btn" onclick="closeModal('add-assignment-modal')">&times;</span>
+                <h2>Create Assignment</h2>
+                <form id="assignment-form">
+                    <div class="form-group">
+                        <label>Title</label>
+                        <input type="text" id="a-title" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Subject</label>
+                        <input type="text" id="a-subject" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Description</label>
+                        <textarea id="a-desc"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Reference Link</label>
+                        <input type="url" id="a-link">
+                    </div>
+                    <div class="form-group">
+                        <label>Deadline</label>
+                        <input type="date" id="a-date" required>
+                    </div>
+                    <button type="submit" class="submit-btn">Publish Assignment</button>
+                </form>
+            </div>
+        </div>
+
+        <div id="reminder-modal" class="modal hidden">
+            <div class="modal-content reminder-content">
+                <span class="close-btn" onclick="closeModal('reminder-modal')">&times;</span>
+                <h2>🔔 Daily Reminders</h2>
+                <div id="reminder-list"></div>
+                <button class="primary-btn" onclick="closeModal('reminder-modal')">Got it</button>
+            </div>
+        </div>
+
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
