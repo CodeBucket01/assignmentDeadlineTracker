@@ -1,0 +1,1 @@
+Assignment Deadline Tracker is a productivity-focused web application designed to help teachers assign tasks and students stay on top of deadlines. With daily reminders, dashboards, and submission tracking, it ensures no assignment is forgotten.
